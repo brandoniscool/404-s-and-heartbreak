@@ -1,0 +1,24 @@
+{
+  "name": "homework-front-end",
+  "version": "1.0.0",
+  "private": false,
+  "devDependencies": {},
+  "dependencies": {
+    "bricks.js": "^1.8.0",
+    "clipboard": "^1.7.1",
+    "keyword-extractor": "0.0.15",
+    "prop-types": "^15.6.0",
+    "react": "^15.2.1",
+    "react-ab-test": "^2.0.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-with-props": "^0.1.1",
+    "react-scripts": "0.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}

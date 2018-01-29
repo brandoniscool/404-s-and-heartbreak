@@ -1,0 +1,33 @@
+.gif-grid {
+  height: 933px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 510px;
+  width: 85.2%;
+  max-width: 99%;
+}
+
+.gif-grid-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fafffa;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  letter-spacing: 13px;
+  text-shadow: 0 1px 3px rgb(107, 107, 107);
+  transition: opacity 0.5s;
+  opacity: 0;
+  width: 100%;
+}
+
+@media (max-width: 558px) {
+  .gif-grid-title {
+    text-align: center;
+  }
+}
+
+.display {
+  opacity: 1;
+}

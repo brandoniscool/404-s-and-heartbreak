@@ -1,0 +1,123 @@
+.gif-center {
+  margin: 0 auto;
+  margin-bottom: 130px;
+  max-height: 380px;
+  min-height: 80px;
+  padding: 0 25px;
+  text-align: center;
+  transition: all 1s;
+}
+
+.gif-center img {
+  animation-duration: .3s;
+  animation-name: fadeInOpacity;
+  animation-timing-function: linear;
+  border-radius: 4px;
+  display: none;
+}
+
+.wrapper {
+  left: 50%;
+  margin-left: -37.5%;
+  position: relative;
+  width: 75%;
+}
+
+.wrapper img {
+  cursor: pointer;
+  transition: all 80ms ease-in;
+}
+
+.wrapper img:active {
+  transform: scale(0.98);
+}
+
+.copy-link {
+  display: block;
+  font-size: 15px;
+  margin-top: 4px;
+  font-weight: 700;
+  opacity: 0;
+  color: #d22b25;
+  transition: opacity 50ms linear;
+}
+
+.copy-link-remove {
+  opacity: 1;
+}
+
+.fixed-pos {
+  position: fixed;
+  top: 35px;
+}
+
+.show-title {
+  margin-top: 3px;
+  text-transform: capitalize;
+}
+
+.show-title .fa {
+  padding-right: 4px;
+}
+
+.show-title a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.show-title a:hover {
+  opacity: 0.85;
+}
+
+.show-hashtags {
+  font-size: 17px;
+  margin-top: 3px;
+}
+
+.show-hashtags a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.show-hashtags a:hover {
+  text-decoration: underline;
+}
+
+.show-hashtags ul, .show-hashtags li {
+  display: inline;
+}
+
+.show-hashtags li {
+  padding: 0 5px 10px 5px;
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    left: initial;
+    margin: 0 auto;
+    position: relative !important;
+    top: initial !important;
+    width: initial;
+  }
+  .gif-center {
+    margin-bottom: 80px;
+  }
+  .show-hashtags {
+    font-size: 13px;
+  }
+}
+
+.gif-center img {
+  border-radius: 3px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.fa-spin {
+  align-items: center;
+  font-size: 30px;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+}
