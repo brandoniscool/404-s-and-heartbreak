@@ -76,7 +76,7 @@ class App extends Component {
               </Link>
             )} />
             <Route path={'/g/:id'} render={() => (
-              <a href={'/'} onClick={e => e.preventDefault()}>
+              <a href={'/'} onClick={e => e.preventDefault()} title="Go Back">
                 <i className={`fa fa-chevron-left`} onClick={this.props.history.goBack} aria-hidden='true'></i>
               </a>
             )} />
