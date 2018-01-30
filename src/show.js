@@ -99,7 +99,6 @@ class Show extends Component {
       }, (error) => {
         if (error) {
           console.log(error);
-          alert('API Error. See Console');
         }
       });
   }

@@ -28,7 +28,7 @@ footer {
   color: rgba(24, 14, 14, 1);
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 10px;
   height: 35px;
   overflow: hidden;
   font-size: 12px;
