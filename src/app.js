@@ -22,7 +22,7 @@ emitter.addPlayListener(function(experimentName, variantName){
 class App extends Component {
   static propTypes = {
     match: PropTypes.object,
-    history: PropTypes.object
+    history: PropTypes.object.isRequired
   }
   constructor(props){
     super(props);
@@ -76,9 +76,9 @@ class App extends Component {
               </Link>
             )} />
             <Route path={'/g/:id'} render={() => (
-              <Link to={'/'} title='Back to Home'>
-                <i className={`fa fa-chevron-left`} aria-hidden='true'></i>
-              </Link>
+              <a href={'/'} onClick={e => e.preventDefault()}>
+                <i className={`fa fa-chevron-left`} onClick={this.props.history.goBack} aria-hidden='true'></i>
+              </a>
             )} />
           </Switch>
           <form className='col' value={this.state.value} onSubmit={this.handleSubmit} onChange={this.handleChange}>
