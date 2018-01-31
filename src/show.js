@@ -134,8 +134,8 @@ class Show extends Component {
                   <Variant name='title'>
                     <div className='show-title'>
                       <ul><li>
-                        {this.state.hashtags.length > 0 ? (
-                          <a href={gif.source} rel='noopener noreferrer' target='_BLANK'>
+                        {this.state.hashtags.length > 0 && !!gif.source_post_url ? (
+                          <a href={gif.source_post_url} rel='noopener noreferrer' target='_BLANK'>
                             <i className="fa fa-external-link" aria-hidden="true"/>{gif.title}
                           </a>
                         ) : (<span/>)}
