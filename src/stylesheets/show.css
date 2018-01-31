@@ -1,7 +1,7 @@
 .gif-center {
   margin: 0 auto;
   margin-bottom: 130px;
-  max-height: 380px;
+  max-height: 370px;
   min-height: 80px;
   padding: 0 25px;
   text-align: center;
@@ -100,7 +100,8 @@
     width: initial;
   }
   .gif-center {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+    max-height: 410px;
   }
   .show-hashtags {
     font-size: 13px;
