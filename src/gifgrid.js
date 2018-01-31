@@ -40,7 +40,7 @@ class GifGrid extends Component {
 
   componentDidUpdate() {
     this.brickInit();
-    if (typeof this.brickInstance !== 'undefined') {
+    if (typeof this.brickInstance !== undefined) {
       this.brickInstance.pack();
     }
   }

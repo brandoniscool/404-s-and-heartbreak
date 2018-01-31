@@ -8,7 +8,6 @@ import GifGrid from './gifgrid';
 
 import './stylesheets/show.css';
 
-
 const GIPHYKEY = 'ug9cmkTe3P1u6zJK22ICwjsEui0EVfWb';
 const APIURLBASE = 'https://api.giphy.com/v1/gifs';
 
