@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import { forceCheck } from 'react-lazyload';
+import LazyLoad from 'react-lazyload';
 import keyword_extractor from 'keyword-extractor';
 
 import './stylesheets/gif.css';
@@ -74,6 +76,7 @@ class Gif extends Component {
   gifLoaded = (e) => {
     e.target.style.display = 'block';
     this.setState({ loaded: true });
+    forceCheck();
   }
 
   gifError = (e) => {
@@ -89,14 +92,16 @@ class Gif extends Component {
     return (
       <div className='grid-item' onClick={this.handleShowGif}>
         <div className={this.state.bgColor} style={divStyle}>
-          <img
-            src={this.props.images.fixed_width.url}
-            height={this.props.images.fixed_width.height}
-            width={this.props.images.fixed_width.width}
-            alt={this.props.title}
-            onLoad={this.gifLoaded}
-            onError={this.gifError}
-          />
+          <LazyLoad height={this.props.images.fixed_width.height+'px'}>
+            <img
+              src={this.props.images.fixed_width.url}
+              height={this.props.images.fixed_width.height}
+              width={this.props.images.fixed_width.width}
+              alt={this.props.title}
+              onLoad={this.gifLoaded}
+              onError={this.gifError}
+            />
+          </LazyLoad>
           <div className='hashtags'>
             <ul>
               {this.state.hashtags.map((h, i) => (

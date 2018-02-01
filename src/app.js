@@ -82,7 +82,7 @@ class App extends Component {
             )} />
           </Switch>
           <form className='col' value={this.state.value} onSubmit={this.handleSubmit} onChange={this.handleChange}>
-            <input type='search' ref={(input) => { this.formInput = input; }} placeholder={this.state.query || 'search gifs'} id='search' tabIndex='0' name='q' autoFocus />
+            <input type='search' ref={(input) => { this.formInput = input; }} placeholder={this.state.query || 'search gifs'} tabIndex='0' name='q' autoFocus />
           </form>
         </div>
         <Experiment name='Gif Count'>
