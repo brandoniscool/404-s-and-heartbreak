@@ -71,14 +71,14 @@ class App extends Component {
         <div className='flex-grid search' >
           <Switch>
             <Route path={'/search/:id'} render={() => (
-              <Link to={'/'} title='Trending'>
-                <i className={`fa fa-newspaper-o`} aria-hidden='true'></i>
-              </Link>
-            )} />
-            <Route path={'/g/:id'} render={() => (
               <a href={'/'} onClick={e => e.preventDefault()} title="Go Back">
                 <i className={`fa fa-chevron-left`} onClick={this.props.history.goBack} aria-hidden='true'></i>
               </a>
+            )} />
+            <Route path={'/g/:id'} render={() => (
+              <Link to={'/'} title='Trending'>
+                <i className={`fa fa-newspaper-o`} aria-hidden='true'></i>
+              </Link>
             )} />
           </Switch>
           <form className='col' value={this.state.value} onSubmit={this.handleSubmit} onChange={this.handleChange}>

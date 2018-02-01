@@ -65,11 +65,15 @@ class GifGrid extends Component {
       })
       .then(() => {
         document.getElementById('gridTitle').classList.add('display');
+      })
+      .catch((error) => {
+        console.error(error);
       }, (error) => {
         if (error) {
           console.log(error);
         }
-      });
+    });
+
   }
 
   brickInit() {
