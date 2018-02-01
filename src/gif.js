@@ -56,7 +56,6 @@ class Gif extends Component {
     }
   }
 
-
   rand(prefix) {
     // randomly generate number for loading gif background color. see line 88-110 in gif.css
     return prefix.toString() + Math.floor(Math.random() * 6 + 1); // e.g. 'color-3'
@@ -92,7 +91,7 @@ class Gif extends Component {
     return (
       <div className='grid-item' onClick={this.handleShowGif}>
         <div className={this.state.bgColor} style={divStyle}>
-          <LazyLoad height={this.props.images.fixed_width.height+'px'}>
+          <LazyLoad height={this.props.images.fixed_width.height+'px'} offset={200}>
             <img
               src={this.props.images.fixed_width.url}
               height={this.props.images.fixed_width.height}
