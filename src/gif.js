@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { forceCheck } from 'react-lazyload';
-import LazyLoad from 'react-lazyload';
-import keyword_extractor from 'keyword-extractor';
+import LazyLoad, { forceCheck } from 'react-lazyload';
+import KeywordExtractor from 'keyword-extractor';
 
 import './stylesheets/gif.css';
 import './stylesheets/animate.css';
@@ -15,26 +14,21 @@ class Gif extends Component {
     query: PropTypes.string,
     id: PropTypes.string,
     images: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    slug: PropTypes.string.isRequired,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false,
       bgColor: this.rand('color-'),
-      isExpanded: false,
       hashtags: [],
     };
   }
 
+  componentWillMount() {
+  }
 
   componentDidMount() {
     this.setHashtags();
-  }
-
-  componentWillMount() {
   }
 
   setHashtags() {
@@ -43,22 +37,22 @@ class Gif extends Component {
       const htreg = new RegExp(`${this.props.query}`, 'gi');
       let t = this.props.title.replace(/gif/gi, '');
       t = t.replace(htreg, '');
-      const k = keyword_extractor.extract(t, {
+      const k = KeywordExtractor.extract(t, {
         language: 'english',
         remove_digits: true,
         return_changed_case: true,
-        remove_duplicates: true
+        remove_duplicates: true,
       });
       this.setState({
         // support 3 hashtags max
-        hashtags: k.slice(0, 3)
+        hashtags: k.slice(0, 3),
       });
     }
   }
 
   rand(prefix) {
     // randomly generate number for loading gif background color. see line 88-110 in gif.css
-    return prefix.toString() + Math.floor(Math.random() * 6 + 1); // e.g. 'color-3'
+    return prefix.toString() + (Math.floor(Math.random() * 6) + 1); // e.g. 'color-3'
   }
 
   handleShowGif = (event) => {
@@ -74,24 +68,24 @@ class Gif extends Component {
 
   gifLoaded = (e) => {
     e.target.style.display = 'block';
-    this.setState({ loaded: true });
+    // updates lazyload viewport
     forceCheck();
   }
 
-  gifError = (e) => {
-    console.log(e);
+  gifError = (error) => {
+    console.log(error);
   }
 
   render() {
     const divStyle = {
-      height: this.props.images.fixed_width.height + 'px',
-      width: this.props.images.fixed_width.width + 'px',
+      height: `${this.props.images.fixed_width.height}px`,
+      width: `${this.props.images.fixed_width.width}px`,
     };
 
     return (
-      <div className='grid-item' onClick={this.handleShowGif}>
+      <div className="grid-item" onClick={this.handleShowGif}>
         <div className={this.state.bgColor} style={divStyle}>
-          <LazyLoad height={this.props.images.fixed_width.height+'px'} offset={200}>
+          <LazyLoad height={`${this.props.images.fixed_width.height}px`} offset={200}>
             <img
               src={this.props.images.fixed_width.url}
               height={this.props.images.fixed_width.height}
@@ -101,7 +95,7 @@ class Gif extends Component {
               onError={this.gifError}
             />
           </LazyLoad>
-          <div className='hashtags'>
+          <div className="hashtags">
             <ul>
               {this.state.hashtags.map((h, i) => (
                 <Link onClick={this.forceUpdate} key={i} to={`/search/${h}`}>
@@ -112,7 +106,7 @@ class Gif extends Component {
           </div>
           {/* <div className='source'>
                 <a href={this.props.source} target='_BLANK'>source : {this.props.source}</a>
-              </div>*/
+              </div> */
           }
         </div>
       </div>

@@ -72,7 +72,7 @@ class GifGrid extends Component {
         if (error) {
           console.log(error);
         }
-    });
+      });
 
   }
 
@@ -93,7 +93,7 @@ class GifGrid extends Component {
       container: '.gif-grid',
       packed: 'data-packed', // if not prefixed with 'data-', it will be added
       position: 'false',
-      sizes,
+      sizes
     }).resize(true)
       .on('pack', () => console.log('grid items packed.'))
       .on('update', () => console.log('NEW grid items packed.'))
