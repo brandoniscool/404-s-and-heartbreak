@@ -98,7 +98,7 @@ class Gif extends Component {
           <div className="hashtags">
             <ul>
               {this.state.hashtags.map((h, i) => (
-                <Link onClick={this.forceUpdate} key={i} to={`/search/${h}`}>
+                <Link onClick={this.forceUpdate} key={i} to={{pathname: `/search/${h}`}}>
                   <li>#{h}</li>
                 </Link>
               ))}
